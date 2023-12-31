@@ -1,0 +1,117 @@
+{% extends "base.html" %}
+
+{% block title %}work{% endblock title %}
+{% block style %}
+
+<style>
+
+    .grid-container {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+        gap: 20px;
+    }
+
+    .grid-item {
+        overflow: hidden;
+        position: relative;
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Adjust shadow */
+        transition: box-shadow 0.3s ease-in-out;
+    }
+
+    .grid-item:hover {
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4); /* Adjust hover shadow */
+    }
+
+    .grid-item .card-body {
+        padding: 10px;
+    }
+
+    .grid-item:hover .card-body {
+        background-color: rgba(255, 255, 255, 0.1); /* Light gray background on hover */
+    }
+
+    .grid-item a {
+        text-decoration: none;
+        color: inherit;
+        cursor: pointer;
+        display: block;
+        height: 100%;
+        width: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+    }
+
+    .grid-item h1 {
+        transition: color 0.3s ease-in-out;
+    }
+
+    .grid-item:hover h1 {
+        color: #3498db; /* Blue color on hover */
+    }
+
+    .grid-item:active {
+        transform: scale(0.95);
+    }
+</style>
+{% endblock style %}
+
+{% block script %}
+<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+{% endblock script %}
+
+{% block body %}
+<H1 style="text-align: center;">Available jobs</H1>
+{% if data.exists %}
+    <div class="container mt-5">
+        <div class="grid-container">
+            {% for item in data %}
+                <a href="{% url 'item_detail' item.id %}" class="text-decoration-none">
+                    <div class="grid-item m-0">
+                        <div class="card border-0 pb-3">
+                            <div class="row">
+                                <div class="col-12 col-sm-12">
+                                    <div class="card-body p-0">
+                                        <div class="text-center">
+                                            <h1 class="mt-0 fs-7 fw-bold">{{ item.get_selected_display }}</h1>
+                                        </div>
+                                        <p class="m-0">The problem is..</p>
+                                        <div class="text-muted fs-5">{{ item.problem|truncatechars:20 }}</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+            {% endfor %}
+        </div>
+    </div>
+{% else %}
+<div class="container d-flex align-items-center justify-content-center" style="height: 100vh;">
+    <div class="jumbotron bg-gradient-dark text-black shadow p-4 rounded">
+        <h1 class="display-4">No Work Currently Available</h1>
+        <p class="lead message">Sorry, there are currently no tasks or work items available.</p>
+        <!-- You can add additional styling or customize this section as needed -->
+    </div>
+</div>
+{% endif %}
+<script>
+    // Your existing script..$(document).ready(function () {
+        $('#selectOption').on('change', function () {
+            var selectedOption = $(this).val();
+            var currentUrl = window.location.href;
+
+            // Remove existing 'selected_option' parameter, if any
+            currentUrl = currentUrl.replace(/[\?&]selected_option=[^\?&]+/, '');
+
+            // Append the selected option to the current URL
+            var separator = currentUrl.indexOf('?') !== -1 ? '&' : '?';
+            var newUrl = currentUrl + separator + 'selected_option=' + selectedOption;
+
+            window.location.href = newUrl;
+        });
+    
+</script>
+{% endblock body %}

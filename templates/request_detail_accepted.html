@@ -1,0 +1,78 @@
+<style>
+    body {
+      font-family: 'Arial', sans-serif;
+      background-color: #f5f5f5;
+      margin: 0;
+      padding: 0;
+    }
+  
+    h2, h3 {
+      color: #3498db; /* Blue color for headers */
+      border-bottom: 2px solid #3498db; /* Border below headers */
+      padding-bottom: 5px;
+      margin-bottom: 15px;
+    }
+  
+    p {
+      margin-bottom: 10px;
+    }
+  
+    strong {
+      color: #2c3e50; /* Dark gray color for strong text */
+    }
+  
+    /* Animation and shadow for details container */
+    .details-container {
+      max-width: 600px;
+      margin: 20px auto;
+      padding: 20px;
+      background-color: #fff;
+      box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+      border-radius: 8px;
+      animation: fadeInUp 0.8s ease-in-out;
+    }
+  
+    /* Hover effect for user details */
+    .user-details:hover {
+      background-color: #ecf0f1; /* Light gray background on hover */
+      transition: background-color 0.3s ease;
+    }
+  
+    /* Keyframe animation for fade-in effect */
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+  </style>
+  
+  <div class="details-container">
+    <h2>Request Details (Accepted)</h2>
+    <p><strong>Name:</strong> {{ request_obj.name }}</p>
+    <p><strong>Phone:</strong> {{ request_obj.phone }}</p>
+    <p><strong>District:</strong> {{ request_obj.district }}</p>
+    <p><strong>Address:</strong> {{ request_obj.address }}</p>
+    <p><strong>Email:</strong> {{ request_obj.email }}</p>
+    <p><strong>Selected Area:</strong> {{ request_obj.get_selected_display }}</p>
+    <p><strong>Problem:</strong> {{ request_obj.problem }}</p>
+    <p><strong>Date:</strong> {{ request_obj.date }}</p>
+  
+    {% if accepted_user %}
+      <div class="user-details">
+        <h3>Accepted User Details:</h3>
+        <p><strong>User Name:</strong> {{ accepted_user.username }}</p>
+        <p><strong>Email:</strong> {{ accepted_user.email }}</p>
+        <!-- Add more user details as needed -->
+  
+        <h3>Worker Stats:</h3>
+        <p><strong>Work Area:</strong> {{ worker_stat.get_workarea_display }}</p>
+        <!-- Add more worker stats as needed -->
+      </div>
+    {% endif %}
+  </div>
+  

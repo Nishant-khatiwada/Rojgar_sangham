@@ -1,0 +1,645 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ROJGAR SANGHAM</title>
+    <!-- bootstrap css link -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css">
+    <style>
+        body {
+            font-family: "Poppins", sans-serif;
+        }
+
+
+        .textColor {
+            color: #030F27;
+        }
+
+
+        .navbarBgDark {
+            background: #030F27;
+        }
+
+
+        .navbar-nav .nav-link.active {
+            color: #EDA72F;
+        }
+
+
+        .nav-link:hover {
+            color: #EDA72F;
+        }
+
+
+        .nav-link {
+            color: #fff;
+        }
+
+
+        .getBtn {
+            color: #fff;
+        }
+
+
+        .getBtn.homebutton {
+            /* Add this style to make the text white */
+            color: #fff;
+        }
+
+
+        .sideLine {
+            border-right: 1px solid #030F27;
+        }
+
+
+        .iconHeight {
+            height: 24px;
+            width: 24px;
+        }
+
+
+        @media screen and (min-width: 992px) {
+            .sideLine {
+                border-right: none;
+            }
+
+
+            .iconHeight {
+                height: 46px;
+                width: 46px;
+            }
+        }
+
+
+        .fa-id-badge,
+        .fa-building-circle-check,
+        .fa-envelope {
+            font-size: 30px;
+        }
+        /* Existing styles remain unchanged */
+
+
+.getBtn.homebutton {
+    color: #fff;
+}
+
+
+.getBtn.homebutton:hover {
+    /* Add this style to keep the text color unchanged on hover */
+    color: #fff;
+}
+.cards{
+    display:flex;
+    justify-content: space-between;
+}
+.index-text {
+            font-family: 'Poppins', sans-serif;
+            text-align: center;
+            font-size: 24px;
+            color: #164198; /* Choose your desired text color */
+            margin: 20px; /* Adjust margin as needed */
+            font-weight:bold;
+        }
+
+
+        @keyframes blink {
+            0%, 100% {
+                opacity: 1;
+            }
+            50% {
+                opacity: 0;
+            }
+        }
+
+
+        .blinking-cursor {
+            display: inline-block;
+            width: 0.1em; /* Adjust the width of the cursor */
+            height: 1.2em; /* Adjust the height of the cursor */
+            background-color: black; /* Adjust the color of the cursor */
+            transform:translateY(5px);
+            animation: blink 1s infinite;
+        }
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .animated {
+            animation: fadeIn 1s ease-in-out;
+        }
+
+        .features-section {
+            background-color: #f8f9fa; /* Change to your preferred background color */
+            padding: 60px 0;
+        }
+
+        .feature-item {
+            background-color: #fff; /* Change to your preferred background color */
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .feature-item:hover {
+            transform: scale(1.05);
+        }
+
+        .feature-title {
+            color: #007bff; /* Change to your preferred text color */
+        }
+
+        .feature-description {
+            color: #555; /* Change to your preferred text color */
+        }
+       
+    </style>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+        crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+        integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+        <link href="https://fonts.googleapis.com/css?family=Roboto:400,100,300,700" rel="stylesheet" type="text/css">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+<script nonce="00f40408-a63d-4be5-a6cb-ea55c73ed5bf">(function(w,d){!function(dp,dq,dr,ds){dp[dr]=dp[dr]||{};dp[dr].executed=[];dp.zaraz={deferred:[],listeners:[]};dp.zaraz.q=[];dp.zaraz._f=function(dt){return async function(){var du=Array.prototype.slice.call(arguments);dp.zaraz.q.push({m:dt,a:du})}};for(const dv of["track","set","debug"])dp.zaraz[dv]=dp.zaraz._f(dv);dp.zaraz.init=()=>{var dw=dq.getElementsByTagName(ds)[0],dx=dq.createElement(ds),dy=dq.getElementsByTagName("title")[0];dy&&(dp[dr].t=dq.getElementsByTagName("title")[0].text);dp[dr].x=Math.random();dp[dr].w=dp.screen.width;dp[dr].h=dp.screen.height;dp[dr].j=dp.innerHeight;dp[dr].e=dp.innerWidth;dp[dr].l=dp.location.href;dp[dr].r=dq.referrer;dp[dr].k=dp.screen.colorDepth;dp[dr].n=dq.characterSet;dp[dr].o=(new Date).getTimezoneOffset();if(dp.dataLayer)for(const dC of Object.entries(Object.entries(dataLayer).reduce(((dD,dE)=>({...dD[1],...dE[1]})),{})))zaraz.set(dC[0],dC[1],{scope:"page"});dp[dr].q=[];for(;dp.zaraz.q.length;){const dF=dp.zaraz.q.shift();dp[dr].q.push(dF)}dx.defer=!0;for(const dG of[localStorage,sessionStorage])Object.keys(dG||{}).filter((dI=>dI.startsWith("_zaraz_"))).forEach((dH=>{try{dp[dr]["z_"+dH.slice(7)]=JSON.parse(dG.getItem(dH))}catch{dp[dr]["z_"+dH.slice(7)]=dG.getItem(dH)}}));dx.referrerPolicy="origin";dx.src="/cdn-cgi/zaraz/s.js?z="+btoa(encodeURIComponent(JSON.stringify(dp[dr])));dw.parentNode.insertBefore(dx,dw)};["complete","interactive"].includes(dq.readyState)?zaraz.init():dp.addEventListener("DOMContentLoaded",zaraz.init)}(w,d,"zarazData","script");})(window,document);</script>
+<script src="https://smtpjs.com/v3/smtp.js">
+</script>
+</head>
+
+
+
+
+<body>
+ 
+</div>
+    <nav>
+        <div class="container-fluid p-0 bg-warning">
+            <div class="container-fluid container-lg p-0">
+                <div class="textColor">
+                    <div class="row justify-content-center align-items-center mx-auto">
+                        <div class="col-12 col-lg-3 p-0">
+                            <div class="display-3 fw-bold py-2 text-center text-lg-start d-none d-lg-block">ROJGAR</div>
+                        </div>
+                        <div class="col-4 col-lg-3 sideLine">
+                            <div class="d-flex justify-content-center align-items-center">
+                                <div class="me-3 p-2 py-3"><i class="fa-solid fa-building-circle-check"></i></div>
+                                <div class="d-none d-lg-block"><span class="fw-medium">Opening Hour</span> <br>
+                                    Mon-Thu : 8:00 am - 9:00 pm</div>
+                            </div>
+                        </div>
+                        <div class="col-4 col-lg-3 sideLine">
+                            <div class="d-flex justify-content-center align-items-center">
+                                <a href="#">
+                                    <div class="me-3 p-2 py-3"><a href="tel:+1234567890"><i
+                                                class="fa-regular fa-id-badge fa-bounce"></i></a></div>
+                                </a>
+                                <div class="d-none d-lg-block"><span class="fw-medium">Contact Us</span><br>+977-9845520062
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-4 col-lg-3">
+                            <div class="d-flex justify-content-center align-items-center">
+                                <a href="#">
+                                    <div class="me-3 p-2 py-3"><a href="mailto:rojgarsangham@gmail.com"><i
+                                                class="fa-solid fa-envelope"></i></a></div>
+                                </a>
+                                <div class="d-none d-lg-block"><span class="fw-medium">Email Us</span><br>
+                                    rojgarsangham@gmail.com</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <hr class="my-0 d-lg-none">
+                <div class="text-center display-3 fw-bold mb-2 d-lg-none">LOGO</div>
+                <div class="navbarBgDark" data-bs-theme="dark">
+                    <nav class="navbar navbar-expand-lg justify-content-center justify-content-lg-between p-0">
+
+
+                        <button class="navbar-toggler m-3 w-100" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false"
+                            aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon"></span>
+                            Menu
+                        </button>
+                        <div class="collapse navbar-collapse justify-content-between" id="navbarNavDropdown">
+                            <ul class="navbar-nav text-uppercase ps-3">
+                                <li class="nav-item">
+                                    <a class="nav-link active pe-3" aria-current="page" href="#">Home</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link px-lg-3" href="#">About</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link px-lg-3" href="#Services-Start">Service</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link px-lg-3" href="#">Team</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link px-lg-3" href="#Contact-Start">Contact</a>
+                                </li>
+                            </ul>
+                            <div class="d-flex">
+                                <!-- <div class="text-white m-1 p-3">
+                                    <button type="button"
+                                        class="btn getBtn border border-white rounded-0 homebutton" onclick="redirectToLoginLink()">Login</button>
+                                </div> -->
+
+
+                                <div class="text-white m-1 p-3">
+                                    <button type="button"
+                                        class="btn getBtn border border-white rounded-0 homebutton" onclick="redirectToSignUpLink()">Signup</button>
+                                </div>
+                            </div>
+                        </div>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+
+    <div class="index-text">
+        A Glance at Rojgar Sangham<span class="blinking-cursor"></span>
+    </div>
+   <div class="cards ml-2 mr-2 mt-5 mb-5">
+    <div class="card" style="width: 18rem;">
+        <img src="media/images/plumber.jpg" class="card-img-top card-1" alt="...">
+        <div class="card-body">
+          <h5 class="card-title">Plumbing</h5>
+          <p class="card-text">Leakage of water is a chance to leak your skills!</p><br>
+          <a href="signup/" class="btn btn-primary">Reach Out</a>
+        </div>
+      </div>
+
+
+      <div class="card" style="width: 18rem;">
+        <img src="media/images/carpenter.jpg" class="card-img-top card-2" alt="...">
+        <div class="card-body">
+          <h5 class="card-title">Carpentry</h5>
+          <p class="card-text">Hurry Up!<br>Its time to show your expertise in Carpentry</p>
+          <a href="signup/" class="btn btn-primary">Reach Out</a>
+        </div>
+      </div>
+
+
+      <div class="card" style="width: 18rem;">
+        <img src="media/images/septic_tank.jpg" class="card-img-top card-3" alt="...">
+        <div class="card-body">
+          <h5 class="card-title">Septic Tank Maintainence</h5>
+          <p class="card-text">The most underrated job in real life is in high demand!</p><br><br>
+          <a href="signup/" class="btn btn-primary">Reach Out</a>
+        </div>
+      </div>
+
+
+      <div class="card" style="width: 18rem;">
+        <img src="media/images/home_inspection.jpg" class="card-img-top card-4" alt="...">
+        <div class="card-body">
+          <h5 class="card-title">Home Inspection</h5>
+          <p class="card-text">Wanna know House condition?<br>Check Out on Rojgar Sangham</p><br><br>
+          <a href="signup/" class="btn btn-primary">Reach Out</a>
+        </div>
+      </div>
+   </div>
+   
+   <!-- Features Section -->
+   <section class="features-section mt-5 animated">
+       <div class="container">
+           <div class="row justify-content-center">
+               <div class="col-md-8 text-center">
+                   <h2 class="section-title mb-4" id="Services-Start">Our Services</h2>
+                   <p class="section-description">Discover the services we offer to connect skilled workers with those
+                       in need:</p>
+               </div>
+           </div>
+
+           <div class="row mt-4">
+               <div class="col-md-4 mb-4">
+                   <div class="feature-item text-center animated">
+                       <i class="fas fa-tools fa-3x mb-3"></i>
+                       <h3 class="feature-title">Skilled Workers</h3>
+                       <p class="feature-description">Connect with skilled workers in various fields such as plumbing,
+                           carpentry, and more.</p>
+                   </div>
+               </div>
+               <div class="col-md-4 mb-4">
+                   <div class="feature-item text-center animated">
+                       <i class="fas fa-comments fa-3x mb-3"></i>
+                       <h3 class="feature-title">Request Assistance</h3>
+                       <p class="feature-description">Users can easily request assistance for their tasks or
+                           problems.</p>
+                   </div>
+               </div>
+               <div class="col-md-4 mb-4">
+                   <div class="feature-item text-center animated">
+                       <i class="fas fa-handshake fa-3x mb-3"></i>
+                       <h3 class="feature-title">Easy Transactions</h3>
+                       <p class="feature-description">Secure payment transactions are handled through our platform
+                           upon job completion.</p>
+                   </div>
+               </div>
+           </div>
+       </div>
+   </section>
+
+   
+   <!-- Remove the container if you want to extend the Footer to full width. -->
+ <!-- <div class="container mt-3 p-0">  -->
+
+
+   <!-- Remove the container if you want to extend the Footer to full width. -->
+ <!-- <div class="container my-5">  -->
+ 
+ 
+  <div class="message-container">
+    {% if messages %}
+    {% for message in messages %}
+    <div class="alert alert-{{ message.tags }} alert-dismissible fade show" role="alert">
+        {{ message }}
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+    {% endfor %}
+    {% endif %}
+</div>
+
+
+<div class="contact-form mt-3">
+    <section class="ftco-section">
+        <div class="container">
+        <div class="row justify-content-center">
+        <div class="col-md-6 text-center mb-5">
+        <h2 class="heading-section" id="Contact-Start">Contact</h2>
+        </div>
+        </div>
+        <div class="row justify-content-center">
+        <div class="col-md-10">
+        <div class="wrapper">
+        <div class="row no-gutters">
+        <div class="col-md-6">
+        <div class="contact-wrap w-100 p-lg-5 p-4">
+        <h3 class="mb-4">Send us a message</h3>
+        <div id="form-message-warning" class="mb-4"></div>
+        <form method="POST" id="contactForm" name="contactForm" class="contactForm">
+           {% csrf_token %}
+        <div class="row">
+        <div class="col-md-12">
+        <div class="form-group">
+        <input type="text" class="form-control" name="name" id="name" placeholder="Name">
+        </div>
+        </div>
+        <div class="col-md-12">
+        <div class="form-group">
+        <input type="email" class="form-control" name="email" id="email" placeholder="Email">
+        </div>
+        </div>
+        <div class="col-md-12">
+        <div class="form-group">
+        <input type="text" class="form-control" name="subject" id="subject" placeholder="Subject">
+        </div>
+        </div>
+        <div class="col-md-12">
+        <div class="form-group">
+        <textarea name="message" class="form-control" id="message" cols="30" rows="6" placeholder="Message"></textarea>
+        </div>
+        </div>
+        <div class="col-md-12">
+        <div class="form-group">
+        <input type="submit" value="Send Message" class="btn btn-primary">
+        <div class="submitting"></div>
+        </div>
+        </div>
+        </div>
+        </form>
+        </div>
+        </div>
+        <div class="col-md-6 d-flex align-items-stretch">
+        <div class="info-wrap w-100 p-lg-5 p-4 img">
+        <h3>Contact us</h3>
+        <p class="mb-4">We're open for any suggestion or just to have a chat</p>
+        <div class="dbox w-100 d-flex align-items-start">
+        <div class="icon d-flex align-items-center justify-content-center">
+       
+        </div>
+        </div>
+        <div class="dbox w-100 d-flex align-items-center">
+        <div class="icon d-flex align-items-center justify-content-center">
+        <span class="fa fa-phone"></span>
+        </div>
+        <div class="text pl-3">
+        <p><span>Phone:</span> <a>+977 9845520062</a></p>
+        </div>
+        </div>
+        <div class="dbox w-100 d-flex align-items-center">
+        <div class="icon d-flex align-items-center justify-content-center">
+        <span class="fa fa-paper-plane"></span>
+        </div>
+        <div class="text pl-3">
+        <p><span>Email:</span> <a><span class="__cf_email__">rojgarsangham@gmail.com</span></a></p>
+        </div>
+        </div>
+        <div class="dbox w-100 d-flex align-items-center">
+        <div class="icon d-flex align-items-center justify-content-center">
+   
+        </div>
+        </div>
+        </div>
+        </div>
+        </div>
+        </div>
+        </div>
+        </div>
+        </section>
+</div>
+    <!-- Footer -->
+    <footer class="text-center text-lg-start text-white" style="background-color: #1c2331">
+      <!-- Section: Social media -->
+      <section
+               class="d-flex justify-content-between p-4"
+               style="background-color: #6351ce"
+               >
+        <!-- Left -->
+        <div class="me-5">
+          <span>Get connected with us on social networks:</span>
+        </div>
+        <!-- Left -->
+ 
+        <!-- Right -->
+        <div>
+          <a href="" class="text-white me-4">
+            <i class="fab fa-facebook-f"></i>
+          </a>
+          <a href="" class="text-white me-4">
+            <i class="fab fa-twitter"></i>
+          </a>
+          <a href="" class="text-white me-4">
+            <i class="fab fa-google"></i>
+          </a>
+          <a href="" class="text-white me-4">
+            <i class="fab fa-instagram"></i>
+          </a>
+          <a href="" class="text-white me-4">
+            <i class="fab fa-linkedin"></i>
+          </a>
+          <a href="" class="text-white me-4">
+            <i class="fab fa-github"></i>
+          </a>
+        </div>
+        <!-- Right -->
+      </section>
+      <!-- Section: Social media -->
+ 
+      <!-- Section: Links  -->
+      <section class="">
+        <div class="container text-center text-md-start mt-5">
+          <!-- Grid row -->
+          <div class="row mt-3">
+            <!-- Grid column -->
+            <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
+              <!-- Content -->
+              <h6 class="text-uppercase fw-bold">Company name</h6>
+              <hr
+                  class="mb-4 mt-0 d-inline-block mx-auto"
+                  style="width: 60px; background-color: #7c4dff; height: 2px"
+                  />
+              <p>
+                Here you can use rows and columns to organize your footer
+                content. Lorem ipsum dolor sit amet, consectetur adipisicing
+                elit.
+              </p>
+            </div>
+            <!-- Grid column -->
+ 
+            <!-- Grid column -->
+            <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
+              <!-- Links -->
+              <h6 class="text-uppercase fw-bold">Products</h6>
+              <hr
+                  class="mb-4 mt-0 d-inline-block mx-auto"
+                  style="width: 60px; background-color: #7c4dff; height: 2px"
+                  />
+              <p>
+                <a href="#!" class="text-white">MDBootstrap</a>
+              </p>
+              <p>
+                <a href="#!" class="text-white">MDWordPress</a>
+              </p>
+              <p>
+                <a href="#!" class="text-white">BrandFlow</a>
+              </p>
+              <p>
+                <a href="#!" class="text-white"></a>
+              </p>
+            </div>
+            <!-- Grid column -->
+ 
+            <!-- Grid column -->
+            <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
+              <!-- Links -->
+              <h6 class="text-uppercase fw-bold">Useful links</h6>
+              <hr
+                  class="mb-4 mt-0 d-inline-block mx-auto"
+                  style="width: 60px; background-color: #7c4dff; height: 2px"
+                  />
+              <p>
+                <a href="#!" class="text-white">Your Account</a>
+              </p>
+              <p>
+                <a href="#!" class="text-white">Become an Affiliate</a>
+              </p>
+              <p>
+                <a href="#!" class="text-white">Shipping Rates</a>
+              </p>
+              <p>
+                <a href="#!" class="text-white">Help</a>
+              </p>
+            </div>
+            <!-- Grid column -->
+ 
+            <!-- Grid column -->
+            <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
+              <!-- Links -->
+              <h6 class="text-uppercase fw-bold">Contact</h6>
+              <hr
+                  class="mb-4 mt-0 d-inline-block mx-auto"
+                  style="width: 60px; background-color: #7c4dff; height: 2px"
+                  />
+              <p><i class="fas fa-home mr-3"></i> chitwan,Nepal </p>
+              <p><i class="fas fa-envelope mr-3"></i> info@rojgar.com</p>
+              <p><i class="fas fa-phone mr-3"></i> + 01 234 567 88</p>
+              <p><i class="fas fa-print mr-3"></i> + 01 234 567 89</p>
+            </div>
+            <!-- Grid column -->
+          </div>
+          <!-- Grid row -->
+        </div>
+      </section>
+      <!-- Section: Links  -->
+ 
+      <!-- Copyright -->
+      <div
+           class="text-center p-3"
+           style="background-color: rgba(0, 0, 0, 0.2)"
+           >
+        © 2020 Copyright:
+        <a class="text-white" href="https://mdbootstrap.com/"
+           >MDBootstrap.com</a
+          >
+      </div>
+      <!-- Copyright -->
+    </footer>
+    <!-- Footer -->
+ 
+  </div>
+  <!-- End of .container -->
+   
+  </div>
+  <!-- End of .container -->
+   
+   
+   
+   
+   
+   <script>
+   function redirectToLoginLink(){
+    window.location.href= 'login/'
+   }
+   function redirectToSignUpLink(){
+    window.location.href = 'signup/'
+   }
+   </script>
+   <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script src="js/jquery.min.js"></script>
+<script src="js/popper.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/jquery.validate.min.js"></script>
+<script src="js/main.js"></script>
+<script defer src="https://static.cloudflareinsights.com/beacon.min.js/v84a3a4012de94ce1a686ba8c167c359c1696973893317" integrity="sha512-euoFGowhlaLqXsPWQ48qSkBSCFs3DPRyiwVu3FjR96cMPx+Fr+gpWRhIafcHwqwCqWS42RZhIudOvEI+Ckf6MA==" data-cf-beacon='{"rayId":"839286503eda9e82","version":"2023.10.0","token":"cd0b4b3a733644fc843ef0b185f98241"}' crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+
+
+       
+</body>
+
+
+</html>

@@ -1,0 +1,141 @@
+{% extends "appbase.html" %}
+{% block title %}User profile{% endblock title %}
+{% block style %}
+<style>
+     .logout {
+        text-align: center; /* Center the content */
+        margin-top: 20px; /* Add margin at the top */
+    }
+
+    .logout a {
+        display: inline-block;
+        padding: 15px 30px;
+        text-decoration: none;
+        border-radius: 5px;
+        transition: background-color 0.3s ease;
+        color: #fff;
+        background-color: #c0392b;
+    }
+
+    .logout a:hover {
+        background-color: #922b21;
+    }
+    body {
+        font-family: 'Arial', sans-serif;
+        background-color: #f0f0f0;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+    }
+    
+    .profile-container {
+        background-color: #fff;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        overflow: hidden;
+        width: 800px;
+        padding: 20px;
+        height: 700px;
+        box-sizing: border-box;
+        text-align: left;
+        transition: transform 0.3s ease-in-out;
+    }
+    .profile-container h2 {
+        text-align: center;
+    }
+    .profile-container:hover {
+        transform: scale(1.05);
+    }
+    
+    .user-icon {
+        color: #3498db;
+        font-size: 16em; /* Increased font size */
+        margin-bottom: 10px;
+    }
+    
+    .profile-details h2 {
+        color: #2c3e50;
+        font-size: 2em; /* Increased font size */
+    }
+    
+    .profile-info h3 {
+        color: #27ae60;
+        margin-bottom: 10px;
+        font-size: 1.5em; /* Increased font size */
+    }
+    
+    .profile-info p {
+        color: #34495e;
+        margin: 10px 0; /* Increased margin for better spacing */
+        font-size: 1.2em; /* Increased font size */
+    }
+    
+    .apply-section {
+        background-color: #45231f;
+        color: #fff;
+        border-radius: 5px;
+        padding: 15px;
+        margin-top: 20px;
+    }
+    .apply-section h3 {
+         text-align: center;
+    }
+    .apply-section a {
+        text-align: center
+    }
+    .apply-btn {
+        display: inline-block;
+        background-color: #c0392b;
+        color: #fff;
+        padding: 15px 30px; /* Increased padding for better button appearance */
+        text-decoration: none;
+        border-radius: 5px;
+        transition: background-color 0.3s ease;
+    }
+    
+    .apply-btn:hover {
+        background-color: #922b21;
+    }
+    
+</style>
+{% endblock style %}
+{% block body %}
+<div class="profile-container">
+    <div class="user-icon">
+        <i class="fas fa-user-circle"></i>
+    </div>
+    <div class="profile-details">
+        <h2>Profile</h2>
+
+        <!-- Add more profile details as needed -->
+    </div>
+
+    <!-- Display user information from the database -->
+    <div class="profile-info">
+        <h3>User Information</h3>
+        <!-- Replace the placeholders with actual data retrieval logic -->
+        <p>Username: {{ user.username }}</p>
+        <p>Email: {{ user.email }}</p>
+        <p>Name:{{user.first_name}} {{user.last_name}}
+        <!-- Add more user information as needed -->
+    </div>
+
+    <!-- Worker Application Section with animation -->
+    <div class="apply-section">
+        <h3>Apply for Worker</h3>
+        <p>
+            "Empower Your Tomorrow, Transforming Today's Work into Masterpieces."</p>
+        <!-- Add a form for worker application if needed -->
+        <a href="{% url 'be_worker' %}" class="btn btn-primary apply-btn">Apply Now</a>
+    </div>
+        <div class="logout mt-10 text-dark">
+            <a href="{% url 'logout' %}" class="btn btn-primary apply-btn"> logout</a>
+        </div>
+</div>
+<!-- Font Awesome -->
+<script src="https://kit.fontawesome.com/your-fontawesome-kit.js" crossorigin="anonymous"></script>
+
+{% endblock body %}

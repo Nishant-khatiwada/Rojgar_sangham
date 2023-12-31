@@ -1,0 +1,249 @@
+{% extends "appbase.html" %}
+{% block title %} {% endblock title %}
+{% block page %}
+<h1>Your Dashboard</h1>
+{% endblock page %}
+
+{% block body %}
+<div class="user-requests">
+  {% if user_requests %}
+    <h2>Your Requests:</h2>
+    <ul>
+      {% for request in user_requests %}
+        <li class="request-item">
+          <strong class="p-3">Name:</strong> {{ request.name }}<br>
+          <strong class="p-3">Date:</strong> {{ request.date }}<br>
+          <strong class="p-3">Problem:</strong> {{ request.problem }}<br>
+          <strong class="p-3">Status:</strong>
+          {% if request.is_accepted %}
+          Accepted     
+          <a href="{% url 'request_detail_accepted' request.id %}" class="text-decoration-none button-links">View Details</a>
+          
+            {% if not request.work_done %}
+              <form method="post" action="{% url 'mark_work_done' request.id %}">
+                {% csrf_token %}
+                <button type="submit">Mark as Done</button>
+              </form>
+              {% else %}
+                <br>
+                <P> Your request has been completed. please pay the price.</P>
+              <div class="link " style="justify-content: center;"><a href="{% url 'payment' %}" class="text-decoration-none button-link"> pay</a></div>
+        {% endif %}
+        {% else %}
+          Waiting <br>
+          <a href="{% url 'request_detail_waiting' request.id %}" class="text-decoration-none button-links">View Details</a>
+          {% endif %}
+          <br>
+          
+          <!-- Add more fields as needed -->
+        </li>
+      {% endfor %}
+    </ul>
+  {% else %}
+    <p>You haven't made any requests yet.</p>
+  {% endif %}
+</div>
+{% endblock body %}
+
+{% block other %}
+<div class="profile-section">
+  <button class="profile-button" onclick="toggleProfile()">
+    <svg class="icon icon-user" viewBox="0 0 24 24" width="30" height="30">
+      <path fill="#3498db" d="M12 2c4.41 0 8 3.59 8 8s-3.59 8-8 8-8-3.59-8-8 3.59-8 8-8zm0 14c2.97 0 5.67-1.52 7.28-4H4.72c1.61 2.48 4.31 4 7.28 4zm0-12c-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4-1.79-4-4-4zm0 6c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2z"></path>
+    </svg>
+  </button>
+  <div class="profile-info" id="profileInfo">
+    <!-- User details will be displayed here dynamically -->
+    <div><button class="btn btn-primary" onclick="logout()">Logout</button></div>
+  </div>
+</div>
+
+<button class="fab-button" onclick="redirectToPage()">
+  <svg class="icon icon-plus" viewBox="0 0 24 24" width="24" height="24">
+    <path fill="#fff" d="M12 2c0.6 0 1 0.4 1 1v8h8c0.6 0 1 0.4 1 1s-0.4 1-1 1h-8v8c0 0.6-0.4 1-1 1s-1-0.4-1-1v-8h-8c-0.6 0-1-0.4-1-1s0.4-1 1-1h8v-8c0-0.6 0.4-1 1-1z"></path>
+  </svg>
+</button>
+
+<script>
+  function redirectToPage() {
+    // Replace '/target-page' with the actual URL you want to redirect to
+    window.location.href = '/request';
+  }
+
+  function toggleProfile() {
+    var profileInfo = document.getElementById("profileInfo");
+    profileInfo.style.display = profileInfo.style.display === "block" ? "none" : "block";
+    
+    // Fetch user details dynamically and update the content
+    if (profileInfo.style.display === "block") {
+      fetchUserProfile(); // Implement this function to fetch user details
+    }
+  }
+
+  function fetchUserProfile() {
+    // Assume you have a URL endpoint to fetch user details
+    var url = '/get_user_profile/';  // Update this with your actual URL
+
+    // Make a GET request to fetch user details
+    fetch(url)
+      .then(response => response.json())
+      .then(data => {
+        var profileInfo = document.getElementById("profileInfo");
+        profileInfo.innerHTML = ""; // Clear existing content
+
+        // Create elements for each user detail
+        for (var detail in data) {
+          var detailElement = document.createElement("p");
+          detailElement.innerHTML = "<strong>" + detail.charAt(0).toUpperCase() + detail.slice(1) + ":</strong> " + data[detail];
+          profileInfo.appendChild(detailElement);
+        }
+      })
+      .catch(error => console.error('Error fetching user profile:', error));
+  }
+  function logout() {
+    // Assuming you have a logout endpoint on the server
+    var logoutUrl = '/logout'; // Replace this with the actual logout endpoint
+  
+    // Make a request to the logout endpoint
+    fetch(logoutUrl, {
+      method: 'POST', // or 'GET' depending on your server implementation
+      credentials: 'include', // Include credentials (cookies) in the request
+    })
+    .then(response => {
+      if (response.ok) {
+        // Clear local user information (you may need to adjust this based on your authentication mechanism)
+        // For example, remove tokens or user data stored in local storage or cookies
+        localStorage.removeItem('userToken');
+        
+        // Redirect the user to the login page or any other desired destination
+        window.location.href = '/login'; // Replace with the actual login page URL
+      } else {
+        console.error('Logout failed:', response.statusText);
+        // Handle logout failure, display an error message, or perform other actions
+      }
+    })
+    .catch(error => {
+      console.error('Error during logout:', error);
+      // Handle unexpected errors during logout
+    });
+  }
+  
+</script>
+
+<style>
+  /* Add your existing styles here */
+  body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #ecf0f1;
+    margin: 0;
+    padding: 0;
+  }
+  .fab-button {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #3498db;
+    color: #fff;
+    border: none;
+    border-radius: 50%;
+    padding: 15px;
+    cursor: pointer;
+    box-shadow: 0 2px 10px rgba(52, 152, 219, 0.3);
+    transition: background-color 0.3s ease;
+  }
+
+  .fab-button:hover {
+    background-color: #2980b9;
+  }
+
+  .profile-button {
+    background: none;
+    border: none;
+    cursor: pointer;
+  }
+
+  .icon-user {
+    fill: #3498db;
+  }
+  .user-requests {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    overflow-y: auto; /* Add this line to enable vertical scrolling */
+    max-height: 400px; /* Adjust the max height as needed */
+  }
+
+  .request-list {
+    max-height: 100%; /* Ensure the list takes up the full height of the container */
+    overflow-y: auto; /* Add this line to enable vertical scrolling within the list */
+  }
+
+  .request-item {
+    list-style: none;
+    margin-bottom: 20px;
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background-color: #fafafa;
+  }
+
+  .fab-button {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #ff0000;
+    color: #fff;
+    border: none;
+    border-radius: 50%;
+    padding: 15px;
+    cursor: pointer;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s ease;
+  }
+
+  .fab-button:hover {
+    background-color: #ff6666;
+  }
+
+  .profile-section {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    display: inline-block;
+  }
+
+  .profile-button {
+    background: none;
+    border: none;
+    cursor: pointer;
+  }
+
+  .icon-user {
+    fill: #333; /* Adjusted color for better visibility */
+  }
+
+  .profile-info {
+    display: none;
+    position: absolute;
+    top: 50px;
+    right: 10px;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    padding: 20px;
+    text-align: left;
+    z-index: 999; /* Ensure the profile container is on top */
+  }
+  h2{
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  h1{
+    text-align: center;
+    
+  }
+</style>
+{% endblock  %}
