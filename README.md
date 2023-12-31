@@ -19,9 +19,6 @@ Administrators can access the admin panel to manage users, job requests, and ens
 **Worker Authorization**
 To get authorized for a job, workers need approval from the employment department. The department will contact us with the worker's email ID, and we'll send an email to the worker. Workers can set their password through this email and log in to the platform.
 
-**Bidding Process**
-Once authorized, workers can apply bids to job requests submitted by customers. Customers review bids and select the worker they prefer to complete the job.
-
 **Payment and Completion**
 Upon job completion, payment is processed through our website. Workers receive their compensation, providing a reliable and efficient method for both workers and customers.
 
