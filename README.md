@@ -1,5 +1,5 @@
 # Rojgar-Sangham
-Skyrider Higher Secondary School
+
 
 **Rojgar Sangham**
 Welcome to Rojgar Sangham, a platform dedicated to providing involuntary employment opportunities to individuals. Our mission is to connect skilled workers with job opportunities and facilitate a seamless process for both workers and customers.
